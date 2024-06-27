@@ -86,6 +86,8 @@ def process_records(catalog, #pylint: disable=too-many-branches
                             write_record(stream_name, transformed_record, \
                                 time_extracted=time_extracted)
                             counter.increment()
+                        else:
+                            LOGGER.warning(f"Found a value older than bookmarked: record id: {str(transformed_record[bookmark_field])} vs bookmark: {str(last_integer)}")
                     elif bookmark_type == 'datetime':
                         last_dttm = transform_datetime(last_datetime)
                         bookmark_dttm = transform_datetime(transformed_record[bookmark_field])
@@ -94,6 +96,8 @@ def process_records(catalog, #pylint: disable=too-many-branches
                             write_record(stream_name, transformed_record, \
                                 time_extracted=time_extracted)
                             counter.increment()
+                        else:
+                            LOGGER.warning(f"Found a value older than bookmarked: {str(bookmark_dttm)} vs bookmark: {str(last_dttm)} id:{str(transformed_record.get('id'))}")
                 else:
                     write_record(stream_name, transformed_record, time_extracted=time_extracted)
                     counter.increment()
