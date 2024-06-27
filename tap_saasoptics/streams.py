@@ -49,7 +49,7 @@ STREAMS = {
     'transactions': {
         'key_properties': ['id'],
         'replication_method': 'INCREMENTAL',
-        'replication_keys': ['modified'],
+        'replication_keys': ['auditentry_modified'],
         'bookmark_query_field_from': 'auditentry__modified__gte',
         'bookmark_query_field_to': 'auditentry__modified__lte',
         'bookmark_type': 'datetime'
@@ -142,19 +142,3 @@ STREAMS = {
        'bookmark_type': 'datetime'
    }
 }
-
-def get_streams(is_full_sync=False):
-    streams = dict(STREAMS)
-
-    # Use modified timestamp to detect the incremental update instead of auditentry_modified
-    # See https://github.com/singer-io/tap-saasoptics/issues/5
-    if not is_full_sync:
-        streams["transactions"]["replication_keys"] = ["modified"]
-        streams["transactions"]["bookmark_query_field_from"] = "modified__gte"
-        streams["transactions"]["bookmark_query_field_to"] = "modified__lte"
-
-        # streams["invoices"]["replication_keys"] = ["modified_at"]
-        # streams["transactions"]["bookmark_query_field_from"] = ["modified__gte"]
-        # streams["transactions"]["bookmark_query_field_to"] = ["modified__lte"]
-
-    return streams

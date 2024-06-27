@@ -4,8 +4,7 @@ import singer
 from singer import metrics, metadata, Transformer, utils
 from singer.utils import strptime_to_utc, strftime
 from tap_saasoptics.transform import transform_json
-from tap_saasoptics.streams import get_streams
-
+from tap_saasoptics.streams import STREAMS
 
 LOGGER = singer.get_logger()
 

@@ -1,7 +1,7 @@
 import os
 import json
 from singer import metadata
-from tap_saasoptics.streams import get_streams
+from tap_saasoptics.streams import STREAMS
 
 
 # Reference:
@@ -14,7 +14,6 @@ def get_schemas(schema_dir="schemas", is_full_sync=False):
     schemas = {}
     field_metadata = {}
 
-    STREAMS = get_streams(is_full_sync)
     for stream_name, stream_metadata in STREAMS.items():
         # schema_path = get_abs_path(f'{schema_dir}/{stream_name}.json')
         schema_path = f'{schema_dir}/{stream_name}.json'
