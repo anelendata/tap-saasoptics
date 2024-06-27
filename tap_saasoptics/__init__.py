@@ -19,11 +19,40 @@ REQUIRED_CONFIG_KEYS = [
     'user_agent'
 ]
 
-def do_discover(schema_dir, is_full_sync=False):
 
+def add_metadata(catalog_dict):
+    for stream in catalog_dict["streams"]:
+        if catalog_dict["streams"][stream].get("key_properties") is None:
+            catalog_dict["streams"][stream]["key_properties"] = ["id"]
+        if catalog_dict["streams"][stream].get("metadata") is None:
+            metadata = []
+            for key in catalog_dict["streams"][stream]["schema"].get("properties", {}).keys():
+                metadata.append(
+                    {
+                        "breadcrumb": [
+                            "properties",
+                            key,
+                        ],
+                        "metadata": {
+                            "inclusion": "available",
+                            # Examples of additional entries
+                            # "table-key-properties": ["id"],
+                            # "forced-replication-method": "INCREMENTAL",
+                            # "valid-replication-keys": ["modified"],
+                        },
+                    }
+                )
+                catalog_dict["streams"][stream]["metadata"] = metadata
+    return catalog_dict
+
+
+def do_discover(schema_dir, is_full_sync=False):
     LOGGER.info('Starting discover')
     catalog = discover(schema_dir, is_full_sync)
-    json.dump(catalog.to_dict(), sys.stdout, indent=2)
+    catalog_dict = catalog.to_dict()
+    # Need to add metadata and key_properties
+    catalog_dict = add_metadata(catalog_dict)
+    json.dump(catalog_dict, sys.stdout, indent=2)
     LOGGER.info('Finished discover')
 
 
