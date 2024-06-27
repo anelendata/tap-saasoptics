@@ -120,7 +120,8 @@ def sync_endpoint(client, #pylint: disable=too-many-branches
                   bookmark_type=None,
                   data_key=None,
                   id_fields=None,
-                  days_interval=None):
+                  days_interval=None,
+                  end_date=None):
 
 
     # Get the latest bookmark for the stream and set the last_integer/datetime
@@ -138,6 +139,8 @@ def sync_endpoint(client, #pylint: disable=too-many-branches
 
     # windowing: loop through date days_interval date windows from last_datetime to now_datetime
     now_datetime = utils.now()
+    if end_date:
+        now_datetime = strptime_to_utc(end_date)
     if bookmark_query_field_from and bookmark_query_field_to:
         # days_interval from config date_window_size, default = 60; passed to function from sync
         if not days_interval:
@@ -281,18 +284,22 @@ def update_currently_syncing(state, stream_name):
 
 
 def sync(client, config, catalog, state, is_full_sync=False):
-    if 'start_date' in config:
-        start_date = config['start_date']
-
-    STREAMS = get_streams(is_full_sync)
+    start_date = config.get('start_date')
+    end_date = config.get('end_date')
 
     # Get selected_streams from catalog, based on state last_stream
     #   last_stream = Previous currently synced stream, if the load was interrupted
     last_stream = singer.get_currently_syncing(state)
     LOGGER.info('last/currently syncing stream: {}'.format(last_stream))
-    selected_streams = []
-    for stream in catalog.get_selected_streams(state):
-        selected_streams.append(stream.stream)
+
+    # Support selected streams overwrite via config
+    selected_streams = config.get('selected_streams')
+    if selected_streams:
+        selected_streams = selected_streams.split(',')
+    else:
+        selected_streams = []
+        for stream in catalog.get_selected_streams(state):
+            selected_streams.append(stream.stream)
     LOGGER.info('selected_streams: {}'.format(selected_streams))
 
     if not selected_streams:
@@ -320,7 +327,8 @@ def sync(client, config, catalog, state, is_full_sync=False):
             bookmark_type=endpoint_config.get('bookmark_type'),
             data_key=endpoint_config.get('data_key', 'results'),
             id_fields=endpoint_config.get('key_properties'),
-            days_interval=int(config.get('date_window_size', '60')))
+            days_interval=int(config.get('date_window_size', '60')),
+            end_date=end_date)
 
         update_currently_syncing(state, None)
         LOGGER.info('FINISHED Syncing: {}, total_records: {}'.format(
