@@ -21,12 +21,13 @@ REQUIRED_CONFIG_KEYS = [
 
 
 def add_metadata(catalog_dict):
-    for stream in catalog_dict["streams"]:
-        if catalog_dict["streams"][stream].get("key_properties") is None:
-            catalog_dict["streams"][stream]["key_properties"] = ["id"]
-        if catalog_dict["streams"][stream].get("metadata") is None:
+    for i in range(0, len(catalog_dict["streams"])):
+        stream = catalog_dict["streams"][i]["stream"]
+        if catalog_dict["streams"][i].get("key_properties") is None:
+            catalog_dict["streams"][i]["key_properties"] = ["id"]
+        if catalog_dict["streams"][i].get("metadata") is None:
             metadata = []
-            for key in catalog_dict["streams"][stream]["schema"].get("properties", {}).keys():
+            for key in catalog_dict["streams"][i]["schema"].get("properties", {}).keys():
                 metadata.append(
                     {
                         "breadcrumb": [
@@ -42,7 +43,7 @@ def add_metadata(catalog_dict):
                         },
                     }
                 )
-                catalog_dict["streams"][stream]["metadata"] = metadata
+                catalog_dict["streams"][i]["metadata"] = metadata
     return catalog_dict
 
 
