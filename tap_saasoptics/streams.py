@@ -78,6 +78,14 @@ STREAMS = {
         'key_properties': ['code'],
         'replication_method': 'FULL_TABLE'
     },
+    'payments': {
+        'key_properties': ['id'],
+        'replication_method': 'INCREMENTAL',
+        'replication_keys': ['modified'],
+        'bookmark_query_field_from': 'modified__gte',
+        'bookmark_query_field_to': 'modified__lte',
+        'bookmark_type': 'datetime'
+    },
     'payment_terms': {
         'key_properties': ['id'],
         'replication_method': 'FULL_TABLE'
