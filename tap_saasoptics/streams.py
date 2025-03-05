@@ -148,5 +148,12 @@ STREAMS = {
        'replication_method': 'INCREMENTAL',
        'replication_keys': ['deleted'],
        'bookmark_type': 'datetime'
+   },
+    'deleted_payments': {
+       'path': 'payments/deleted',
+       'key_properties': ['id'],
+       'replication_method': 'INCREMENTAL',
+       'replication_keys': ['deleted'],
+       'bookmark_type': 'datetime'
    }
 }

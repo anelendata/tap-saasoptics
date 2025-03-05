@@ -1,0 +1,896 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "lines": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "invoice": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "local_amount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "netsuite_line": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "chargify_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "xero_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "xero_batch_payment_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "source_system": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source_created": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "source_modified": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "date": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "local_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "local_applied_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "local_unapplied_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "test": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sync": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contract": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "customer": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "failure_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "failure_message": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "qb_payment_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "funding_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "foreign_exchange_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "chargify_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sync_to_chargify": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "refund_of": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "netsuite_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "qb_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "stripe_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_by_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "modified": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "modified_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "modified_by_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field3": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field4": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field5": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field6": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field7": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field8": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field9": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field10": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field11": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field12": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field13": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field14": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field15": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field16": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field17": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field18": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field19": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text_field20": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field3": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field4": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field5": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field6": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field7": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field8": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field9": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field10": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field11": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field12": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field13": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field14": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field15": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field16": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field17": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field18": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field19": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_field20": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "boolean_field1": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field2": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field3": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field4": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field5": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field6": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field7": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field8": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field9": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field10": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field11": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field12": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field13": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field14": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field15": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field16": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field17": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field18": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field19": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "boolean_field20": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "date_field1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field3": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field4": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field5": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field6": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field7": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field8": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field9": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field10": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field11": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field12": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field13": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field14": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field15": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field16": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field17": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field18": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field19": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_field20": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field3": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field4": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field5": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field6": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field7": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field8": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field9": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field10": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field11": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field12": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field13": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field14": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field15": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field16": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field17": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field18": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field19": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dropdown_field20": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "_sdc_extracted_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "_sdc_batched_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    }
+  }
+}
